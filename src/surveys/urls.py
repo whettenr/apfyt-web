@@ -11,6 +11,7 @@ from .api import (
 urlpatterns = [
 	
 	url(r'^$', TemplateView.as_view(template_name="surveys/survey.html")),
+	url(r'^question-template/$', TemplateView.as_view(template_name="surveys/question.html")),
 
 	url(r'^api/answer/$', AnswerApiList.as_view()),
 	url(r'^api/questions/$', QuestionApiList.as_view()),
