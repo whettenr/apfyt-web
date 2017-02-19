@@ -8,7 +8,7 @@
 	function config($routeProvider) {
 		$routeProvider
 			.when('/', {
-				templateUrl:'/surveys/',
+				templateUrl:'/static/html/survey.html/',
 				controller: 'SurveyController'
 			})
 			.otherwise('/');

@@ -18,9 +18,9 @@ STYLE_CHOICES = (
 )
 
 class Question(models.Model):
-	survey	 = models.ForeignKey(Survey)
+	survey	 = models.ForeignKey(Survey, related_name="questions")
 	question = models.TextField(max_length=500)
-	style = models.CharField(max_length=25, choices=STYLE_CHOICES)
+	style = models.CharField(max_length=25, choices=STYLE_CHOICES, null=True, blank=True)
 
 	order = models.PositiveIntegerField(default=0)
 

@@ -5,19 +5,15 @@
 		
 
 	function SurveyController($scope, $http) {
-		$scope.add = function (list, title, description) {
+		$scope.add = function (survey, question, style, order) {
 			var question = {
-				// title:title,
-				// list:list.id,
-				
-				// description:description
 
 				survey: survey.id,
 				question: question,
 				style: style,
 				order: order,
 			};
-			$http.post('/surveys/questions/', card)
+			$http.post('/surveys/questions_api/', question)
 				.then(function(response){
 					survey.question.push(response.data);
 				},
@@ -27,7 +23,7 @@
 		};
 
 		$scope.data = [];
-		$http.get('surveys/api/surveys/').then(function(response){
+		$http.get('/surveys/surveys_api/').then(function(response){
 			$scope.data = response.data;
 			console.log(response.data);
 			console.log(response);

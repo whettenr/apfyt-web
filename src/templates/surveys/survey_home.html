@@ -1,12 +1,18 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block head_title %}Survey | {{ block.super }}{% endblock %}
 
 
 {% block content %}
 survey.html 
 this page will contain a companies surveys
-<div ng-app="survey"></div>
+<div ng-app="survey">
+<div class="container">
 <ng-view></ng-view>
+</div>
+</div>
+
+
 {% endblock %}
 
 

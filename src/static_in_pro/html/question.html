@@ -1,0 +1,36 @@
+<div class="card" ng-hide="edit" ng-click="edit=true">
+	<h4>{{ question.question }}</h4>
+	<span class="description">{{ card.description }}</span>
+</div>
+
+<div class="card" ng-show="edit" 
+	ng-model-options="modelOptions">
+	<div>
+		<div class="form-group">
+			<label>Question</label>
+			<input 
+			class="form-control"
+			placeholder="Question Content"
+			type="text" 
+			ng-model="question.question" 
+			ng-change="update()">
+		</div>
+
+		<div class="form-group">
+			<label>Style of Question</label>
+			<select ng-change="update()" ng-model="question.style" class="form-control">
+			  <option value="rate">Rating</option>
+			  <option value="text">Text Response</option>
+			</select>
+			<span>you have selected {{style}}</span>
+		</div>
+		
+		<div class="form-group">
+			<label>Order of Question</label>
+			<input ng-change="update()" type="number" ng-model="question.order">
+		</div>
+		
+		<button class="btn btn-default" ng-click="edit=flase">Close</button>
+		<button class="btn btn-primary" ng-click="delete()">Delete Card</button>
+	</div>
+</div>

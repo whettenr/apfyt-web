@@ -1,0 +1,32 @@
+<div ng-repeat="survey in data">
+	<div class="row">
+	<div class="col-md-4">
+	<h4 class="text-center">{{ survey.name }}</h4>
+	<ul><li ng-repeat="question in survey.questions">
+		<survey-question></survey-question>
+	</li></ul>
+	<div>
+		<div class="form-group">
+			<label>Question</label>
+			<input type="text" class="form-control" ng-model="question_content" placeholder="Question Content">
+		</div>
+
+		<div class="form-group">
+			<label>Style of Question</label>
+			<select ng-model="style" class="form-control">
+			  <option value="rate">Rating</option>
+			  <option value="text">Text Response</option>
+			</select>
+			<span>you have selected {{style}}</span>
+		</div>
+		
+		<div class="form-group">
+			<label>Order of Question</label>
+			<input type="number" ng-model="order">
+		</div>
+		<button class="btn btn-primary" ng-click="add(survey, question_content, style, order)"> + Add New Question </button>
+
+	</div>
+	</div>
+	</div>
+</div>

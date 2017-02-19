@@ -12,6 +12,8 @@ class QuestionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class SurveySerializer(serializers.ModelSerializer):
+    questions = QuestionSerializer(many=True)
+
     class Meta:
         model = Survey
         fields = '__all__'
