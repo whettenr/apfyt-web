@@ -1,6 +1,5 @@
 <div ng-repeat="survey in data">
-	<div class="row">
-	<div class="col-md-4">
+	<div class="col-md-4 survey-form">
 	<h4 class="text-center">{{ survey.name }}</h4>
 	<ul><li ng-repeat="question in survey.questions">
 		<survey-question></survey-question>
@@ -20,13 +19,13 @@
 			<span>you have selected {{style}}</span>
 		</div>
 		
+		<!-- form for new question -->
 		<div class="form-group">
 			<label>Order of Question</label>
 			<input type="number" ng-model="order">
 		</div>
 		<button class="btn btn-primary" ng-click="add(survey, question_content, style, order)"> + Add New Question </button>
 
-	</div>
 	</div>
 	</div>
 </div>

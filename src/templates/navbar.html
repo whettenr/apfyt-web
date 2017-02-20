@@ -6,13 +6,24 @@
 	<ul id="navigation">
 		
 		<li>
-			<a href="contact-apfyt.html">Contact</a>
+			<a href="{% url 'contact' %}">
+			{% if request.resolver_match.url_name == 'contact'  %}
+				| Contact |
+			{% else %}
+			 Contact 
+			{% endif %}</a>
 		</li>
 		<li>
-			<a href="about-apfyt.html">About</a>
+			<a href="{% url 'about' %}">
+			{% if request.resolver_match.url_name == 'about'  %} | About |
+			{% else %}
+			  About  
+			{% endif %}</a>
 		</li>
 		<li class="selected">
-			<a href="index-apfyt.html">| Home |</a>
+			<a href="{% url 'home' %}">
+			{% if request.resolver_match.url_name == 'home'  %} | Home |{% else %}  Home   
+			{% endif %}</a>
 		</li>
 	</ul>
 	</div>
