@@ -4,6 +4,29 @@ All Rights Reserved.
 */
 @import "bootstrap-social.less";
 
+@font-face {
+ font-family: 'Isidora-Black';
+  src: url(http://apfyt-web/static_in_env/static_root/fonts/Isidora-Black.otf);
+}
+@font-face {
+	font-family: 'Sansumi-Regular';
+	src: url(http://apfyt-web/static_in_env/static_root/fonts/Sansumi-Regular.ttf);
+}
+@font-face {
+	font-family: 'Sansumi-UltraLight';
+	src: url(http://apfyt-web/static_in_env/static_root/fonts/Sansumi-UltraLight.ttf);
+}
+@font-face {
+	font-family: 'Sansumi-Bold';
+	src: url(http://apfyt-web/static_in_env/static_root/fonts/Sansumi-Bold.ttf);
+}
+@font-face {
+	font-family: 'GothamLight';
+	src: url(http://apfyt-web/static_in_env/static_root/fonts/GothamLight.ttf);
+}
+
+
+
 body {
 	margin: 0;
 	padding: 0;
