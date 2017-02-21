@@ -11,7 +11,6 @@ from django.template.loader import get_template
 from .forms import ContactForm
 
 def contact(request):
-	company_info = CompanyInfo.objects.first()
 	form = ContactForm
 	if request.method == 'POST':
 		form = form(data=request.POST)
@@ -46,7 +45,6 @@ def contact(request):
 			messages.success(request, 'Email sent!')
 			return redirect('contact')
 
-	return render(request, 'home/contact.html', {
-		'company_info': company_info,
+	return render(request, 'contact.html', {
 		'form': form,
     })
