@@ -27,7 +27,7 @@ urlpatterns = [
     url(r'^', include('main.urls')),
     url(r'^surveys/', include('surveys.urls')),
 
-    # url(r'^companies/', include('companies.urls')),
+    url(r'^company/', include('companies.urls')),
 ]
 
 if settings.DEBUG:

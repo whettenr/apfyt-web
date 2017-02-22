@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content%}
+{% for deal in object_list %}
+	{{ deal }}
+	<img src="{{ deal.image.url }}">
+{% empty %}
+	no deals yet
+{% endfor %}
+{% endblock %}
