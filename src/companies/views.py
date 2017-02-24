@@ -6,10 +6,10 @@ from .models import DealOfTheDay
 
 def company_profile(request):
 	# verifies that the user is associated with a company
-	if not request.user.companyapfytmanager:
+	try:
+		request.user.companyapfytmanager
+	except:
 		raise Http404
-
-	print request.user.companyapfytmanager.company
 
 
 	# context is the data that gets passed to the html template

@@ -2831,14 +2831,10 @@ footer {
 
 .notifications {
 	margin-top: 30px;
-	
 }
-.onehundred {
-	width: 100%;
-}
-.form-control-two {
-	width: 100%;
-	margin: 0 0 0 0;
+
+.form-control-half {
+	width: 50%;
 }
 .input-group-addon:last-child, .input-group-addon:not(:first-child):not(:last-child){
 	border-radius: 5px;

@@ -7,7 +7,65 @@
 {% block content %}
 <br>
 <br>
+<div class="container">
 <h1 class="text-center">a penny for your thoughts</h1>
+<div class="row">
+<form class="col-sm-6 col-sm-offset-3" method="post">
+	{% csrf_token %}
+	<div class="form-group row">
+		<div class="col-sm-6 has-error">
+		{% if not form.contact_firstname.errors %}
+		<label class="control-label">asdfasdf</label> 
+		{% endif %}
+
+		{{ form.contact_firstname.errors }}
+		{{ form.contact_firstname }}
+		</div>
+
+		<div class="col-sm-6">
+		{% if not form.contact_lastname.errors %}
+		asdfasdf
+		{% endif %}
+		{{ form.contact_lastname.errors }}
+		{{ form.contact_lastname }}
+		</div>
+	</div>
+
+	<div class='form-group {% if not form.contact_email.errors %}has-errors{% endif %}'>
+	{% if not form.contact_email.errors %}
+	asdfasdf
+	{% endif %}
+	<label class="control-label">{{ form.contact_email.errors }}</label>
+	{{ form.contact_email }}</div>
+
+	<div class="form-group">
+	{% if not form.contact_company.errors %}
+	asdfasdf
+	{% endif %}
+	{{ form.contact_company.errors }}
+	{{ form.contact_company }}</div>
+
+	<div class="form-group">
+	{% if not form.contact_subject.errors %}
+	asdfasdf
+	{% endif %}
+	{{ form.contact_subject.errors }}
+	{{ form.contact_subject }}</div>
+
+	<div class="form-group">
+	{% if not form.contact_subject.errors %}
+	asdfasdf
+	{% endif %}
+	{{ form.content.errors }}
+	{{ form.content }}</div>
+
+	<button type="submit" class="btn btn-primary text-center">Submit</button>
+</form>
+</div>
+</div>
+{% endblock %}
+
+
 <div class="text-center ">
 <form class="col-sm-6 col-sm-offset-3">
 	<div class="container onehundred">
@@ -61,8 +119,4 @@
 	</div>
 </form>
 </div>
-{% endblock %}
-
-
-
 
