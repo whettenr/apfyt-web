@@ -72,7 +72,7 @@ img {
 #body .se-pre-con img {
 	margin-left: 400px;
 }
-#header {
+#header, #header2 {
 	background: url("../images/bg-home-tinted.jpg") no-repeat center top;
 	margin: 0;
 	min-height: 60px;
@@ -89,11 +89,11 @@ img {
   background 100%;
   opacity: 1;
 }
-#header  {
+#header, #header2  {
 	background: rgba(0,0,0,.2);
 	margin: 0 auto;
 	height: 55px;
-	padding: 0 10px;
+	padding: 0 0;
 	z-index: ;
 }
 #header div a .logo {
@@ -284,6 +284,8 @@ img {
 form {
     display: block;
     margin-top: 0em;
+    position: relative;
+    min-height: 100%;
 }
 .dropdown-menu input[type=text], .dropdown-menu input[type=password] {
     width: 200px;
@@ -349,10 +351,13 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     position: relative;
 }
 input, textarea:-webkit-autofill, select:-webkit-autofill {
-    background-color: rgb(250, 255, 189);
+   
     background-image: none;
     color: rgb(0, 0, 0);
 
+}
+#alert {
+	margin: 20px, 0;
 }
 input[type=checkbox], input[type=radio] {
     width: auto;
@@ -439,6 +444,9 @@ input[type=checkbox], input[type=radio] {
 	height: 65px;
 
 }
+#iconcheck {
+	display: inline;
+}
 #bkg {
 	margin-top: 10px;
 	z-index: 999;
@@ -458,7 +466,7 @@ margin-left: 4px;
 #body.home {
 	background: none;
 	margin: 0;
-	min-height: 700%;
+	min-height: 100%;
 	overflow: hidden;
 	padding: 0;
 	width: 100%;
@@ -2268,7 +2276,9 @@ a:hover, a:focus, a:active, a.active {
 	width: 100%;
 }
 
-
+#spacedup {
+	margin: 20px, 0;
+}
 footer div h3 {
 	letter-spacing: .5rem;
     font-family: 'Montserrat-SemiBold';
@@ -2285,7 +2295,7 @@ footer div h6 {
 	font-family: 'Avenir-Roman';
 	font-size: 10px;
 	color:#ffffff;
-	margin: 70px 0 33px;
+	margin: 30px 0 33px;
 	position: relative;
 	min-height: 100%;
 }
@@ -2788,7 +2798,7 @@ input[type=button], input[type=reset], input[type=submit] {
 
 .loginmodal-container a {
   text-decoration: none;
-  color: #666;
+  color: #667;
   font-weight: 400;
   text-align: center;
   display: inline-block;
@@ -2798,4 +2808,46 @@ input[type=button], input[type=reset], input[type=submit] {
 
 .login-help{
   font-size: 12px;
+}
+html, body {
+  min-height: 100%;
+}
+
+#body {
+  min-height: 100%;
+}
+
+#body {
+  overflow: auto;
+  padding-bottom: 151px; /* must be same height as the footer */
+}
+
+footer {
+  position: relative;
+   /* negative value of footer height */
+  min-height: 151px;
+  clear: both;
+} 
+
+.notifications {
+	margin-top: 30px;
+	
+}
+.onehundred {
+	width: 100%;
+}
+.form-control-two {
+	width: 100%;
+	margin: 0 0 0 0;
+}
+.input-group-addon:last-child, .input-group-addon:not(:first-child):not(:last-child){
+	border-radius: 5px;
+}
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group>.btn, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn-group:not(:last-child)>.btn, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {
+	border-radius: 5px;
+
+}
+.fixed {
+	position: fixed;
+	z-index: 999;
 }
