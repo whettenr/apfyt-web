@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Answer, Question, Survey, SurveyResponse
+from .models import Answer, MultipleChoiceOption, Question, Survey, SurveyResponse
 from companies.models import Company
 
 from image_cropping.utils import get_backend
@@ -31,6 +31,11 @@ class AnswerSerializer(serializers.ModelSerializer):
         model = Answer
         fields = '__all__'
 
+# class MultipleChoiceOptionSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = MultipleChoiceOption
+#         fields = '__all__'
+        
 class QuestionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Question

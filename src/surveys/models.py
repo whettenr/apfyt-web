@@ -27,7 +27,7 @@ class Question(models.Model):
 	question = models.TextField(max_length=500)
 	style = models.CharField(max_length=25, choices=STYLE_CHOICES, null=True, blank=True)
 	required = models.BooleanField(default=True)
-	choices = models.ManyToManyField(MultipleChoiceOption)
+	choices = models.ManyToManyField(MultipleChoiceOption, blank=True)
 
 	order = models.PositiveIntegerField(default=0)
 
@@ -38,13 +38,17 @@ class Question(models.Model):
 		unique_together = ('survey', 'question')
         ordering = ('order',)
 
-STATUS_CHOICES = (
-    (0, '0'),
+RATE_CHOICES = (
     (1, '1'),
     (2, '2'),
     (3, '3'),
     (4, '4'),
     (5, '5'),
+    (6, '6'),
+    (7, '7'),
+    (8, '8'),
+    (9, '9'),
+    (10, '10')
 )
 
 
@@ -80,8 +84,8 @@ class Answer(models.Model):
 	survey_response = models.ForeignKey(SurveyResponse)
 	response_text = models.TextField(max_length=500, null=True, blank=True)
 	response_rate = models.PositiveIntegerField(
-		choices=STATUS_CHOICES, 
-		validators=[MinValueValidator(1), MaxValueValidator(5)], 
+		choices=RATE_CHOICES, 
+		validators=[MinValueValidator(1), MaxValueValidator(10)], 
 		null=True, 
 		blank=True)
 	response_multiple_choice_selected = models.ForeignKey(MultipleChoiceOption, null=True, blank=True)
