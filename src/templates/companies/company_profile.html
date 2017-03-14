@@ -4,4 +4,8 @@
 <br><br>
 <h2>I'm logged in as {{ request.user }}</h2>
 <h2> company: {{ company }}</h2>
+<h2> profile image:</h2>
+<img src="{{ company.profile_image.url }}">
+{% load cropping %}
+<img src="{% cropped_thumbnail company 'cropping' scale=0.5 %}">
 {% endblock %}

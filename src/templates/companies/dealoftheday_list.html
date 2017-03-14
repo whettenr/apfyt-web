@@ -4,6 +4,11 @@
 {% for deal in object_list %}
 	{{ deal }}
 	<img src="{{ deal.image.url }}">
+
+	Example usage:
+
+{% load cropping %}
+<img src="{% cropped_thumbnail deal 'cropping' scale=0.5 %}">
 {% empty %}
 	no deals yet
 {% endfor %}

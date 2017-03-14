@@ -6,21 +6,28 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Survey(models.Model):
 	company = models.ForeignKey(Company)
 	name = models.CharField(max_length=25)
+	reward = models.TextField(max_length=500, null=True, blank=True)
+
 
 	def __unicode__(self): #def __str__(self):
 		return self.name
 
-	# get question set
 
 STYLE_CHOICES = (
 	('rate', 'Rating'),
 	('text', 'Text Response'),
+	('mc', 'Multiple Choice'),
 )
+
+class MultipleChoiceOption(models.Model):
+	text = models.CharField(max_length=140)
 
 class Question(models.Model):
 	survey	 = models.ForeignKey(Survey, related_name="questions")
 	question = models.TextField(max_length=500)
 	style = models.CharField(max_length=25, choices=STYLE_CHOICES, null=True, blank=True)
+	required = models.BooleanField(default=True)
+	choices = models.ManyToManyField(MultipleChoiceOption)
 
 	order = models.PositiveIntegerField(default=0)
 
@@ -38,42 +45,53 @@ STATUS_CHOICES = (
     (3, '3'),
     (4, '4'),
     (5, '5'),
-    (6, '6'),
-    (7, '7'),
-    (8, '8'),
-    (9, '9'),
-    (10, '10'),
 )
 
-class Answer(models.Model):
-	question = models.ForeignKey(Question)
-	response_text = models.TextField(max_length=500, null=True, blank=True)
-	response_rate = models.PositiveIntegerField(
-		choices=STATUS_CHOICES, 
-		validators=[MinValueValidator(1), MaxValueValidator(10)], 
-		null=True, 
-		blank=True)
-
-	def __unicode__(self): #def __str__(self):
-		return "Answer: " + str(self.question) 
 
 class SurveyResponse(models.Model):
 	customer = models.ForeignKey(Customer)
 	survey = models.ForeignKey(Survey)
-	answer = models.ManyToManyField(Answer)
-
-	completed = models.BooleanField()
-
-	customer_age = models.DateField()
+	completed = models.BooleanField(default=False)
+	
+	# records time when an instance is created
 	start_time = models.DateField(auto_now_add=True)
+	# record time when an instance is created
 	last_edited = models.DateField(auto_now=True)
 	
 	def __unicode__(self): #def __str__(self):
 		return "Response: " + str(self.survey)
-	# location = 
 
-	# is complete (create function to see if each question has an answer)
+	# returns percent value of completion
+	# i.e.) 100 = complete 
+	# 0 = no questions answered
+	# 50 = half of questions answered
+	def get_completion_status(self): 
+		number_of_questions = self.survey.question_set.count()
+		print number_of_questions
+		number_of_answers = self.answer_set.count()
+		print number_of_answers
+		return number_of_answers/number_of_questions
 
 
+
+
+class Answer(models.Model):
+	question = models.ForeignKey(Question)
+	survey_response = models.ForeignKey(SurveyResponse)
+	response_text = models.TextField(max_length=500, null=True, blank=True)
+	response_rate = models.PositiveIntegerField(
+		choices=STATUS_CHOICES, 
+		validators=[MinValueValidator(1), MaxValueValidator(5)], 
+		null=True, 
+		blank=True)
+	response_multiple_choice_selected = models.ForeignKey(MultipleChoiceOption, null=True, blank=True)
+
+	# records time when an instance is created
+	created_on = models.DateField(auto_now_add=True)
+	# records time when an instance is edited
+	last_edited_on = models.DateField(auto_now=True)
+
+	def __unicode__(self): #def __str__(self):
+		return "Answer: " + str(self.question) 
 
 

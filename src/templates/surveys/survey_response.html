@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block head_title %}Respond | {{ block.super }}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>You have completed {{ survey_response.get_completion_status }} percent</h2>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="{{ survey_response.get_completion_status }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ survey_response.get_completion_status }}%">
+     {{ survey_response.get_completion_status }}%
+    </div>
+  </div>
+</div>
+
+<!-- form -->
+
+{% endblock %}
