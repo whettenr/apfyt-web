@@ -11,7 +11,6 @@ def company_profile(request):
 	except:
 		raise Http404
 
-
 	# context is the data that gets passed to the html template
 	# we should gather data here and then add it to the template
 	context = {

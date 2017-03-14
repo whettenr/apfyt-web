@@ -63,9 +63,12 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
 <script src="{% static 'js/surveys/survey.js' %}"></script>
 <script src="{% static 'js/surveys/survey.config.js' %}"></script>
 <script src="{% static 'js/surveys/question.directive.js' %}"></script>
+<script href="{% static 'js/surveys/text.js' %}"></script>
+
 </body>
 {% if not request.user.is_authenticated %}
 {% include "login_popup.html" %}
