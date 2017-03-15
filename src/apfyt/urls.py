@@ -23,11 +23,13 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
-
     url(r'^', include('main.urls')),
     url(r'^surveys/', include('surveys.urls')),
-
     url(r'^company/', include('companies.urls')),
+
+    url(r'^api/', include('api.urls'))
+    #url(r'^rest-auth/', include('rest_auth.urls')),
+    #url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login')
 ]
 
 if settings.DEBUG:
