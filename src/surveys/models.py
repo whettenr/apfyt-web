@@ -1,10 +1,15 @@
 from __future__ import unicode_literals
+
+from django.conf import settings
 from django.db import models
-from users.models import ApfytUser, Company 
+from companies.models import Company
+from users.models import CompanyApfytManager 
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.conf import settings
 
 class Survey(models.Model):
 	company = models.ForeignKey(Company)
+	# survey_author = models.ForeignKey(CompanyApfytManager)
 	name = models.CharField(max_length=25)
 	reward = models.TextField(max_length=500, null=True, blank=True)
 
@@ -57,7 +62,7 @@ RATE_CHOICES = (
 
 
 class SurveyResponse(models.Model):
-	apfyt_user = models.ForeignKey(ApfytUser)
+	apfyt_user = models.ForeignKey(settings.AUTH_USER_MODEL)
 	survey = models.ForeignKey(Survey)
 	completed = models.BooleanField(default=False)
 	

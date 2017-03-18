@@ -15,7 +15,7 @@ def image_upload_to_company_folder(instance, filename):
 class Company(models.Model):
 	name = models.CharField(max_length=25)
 	bio = models.TextField(max_length=500, blank=True)
-	profile_image = models.ImageField(upload_to=image_upload_to_company_folder, blank=True, null=True)
+	profile_image = ImageCropField(upload_to=image_upload_to_company_folder, blank=True, null=True)
 	cropping = ImageRatioField('profile_image', '600x600', allow_fullsize=True)
 
 	

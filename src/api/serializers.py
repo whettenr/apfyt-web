@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from companies.models import Company
 from surveys.models import Answer, MultipleChoiceOption, Question, Survey, SurveyResponse
-from users.models import ApfytUser
 
 from image_cropping.utils import get_backend
 
@@ -26,11 +25,6 @@ class CompanySerializer(serializers.ModelSerializer):
         )
         print thumbnail_url
         return thumbnail_url
-
-class ApfytUserSerializer(serializers.ModelSerializer):
-    class meta:
-        model = ApfytUser
-        fields = '__all__'
 
 
 class AnswerSerializer(serializers.ModelSerializer):

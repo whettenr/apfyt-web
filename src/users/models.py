@@ -9,8 +9,16 @@ from companies.models import Company
 class CompanyApfytManager(models.Model):
 	company = models.ForeignKey(Company)
 	user = models.OneToOneField(settings.AUTH_USER_MODEL)
-	
-class ApfytUser(models.Model):
-	user = models.OneToOneField(settings.AUTH_USER_MODEL)
-	birth_year = models.DateField()
+
+	def __unicode__(self): #def __str__(self):
+		return str(self.company) + " " + str(self.user)
+
+
+# im thinking this model is not necessary
+# django/facebook authentication already collects 
+# and stores all the data 
+
+# class ApfytUser(models.Model):
+# 	user = models.OneToOneField(settings.AUTH_USER_MODEL)
+# 	birth_year = models.DateField()
 

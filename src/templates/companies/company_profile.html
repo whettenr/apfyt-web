@@ -1,11 +1,24 @@
 {% extends "base.html" %}
+{% block head_title %}{{company}}'s profile | {{ block.super }}{% endblock %}
 
 {% block content%}
 <br><br>
 <h2>I'm logged in as {{ request.user }}</h2>
 <h2> company: {{ company }}</h2>
 <h2> profile image:</h2>
-<img src="{{ company.profile_image.url }}">
+{% if  company.profile_image %}
+<img class="img-responsive" src="{{ company.profile_image.url }}">
 {% load cropping %}
 <img src="{% cropped_thumbnail company 'cropping' scale=0.5 %}">
+{% else %}
+no profile image yet
+{% endif %}
+
+<h2> company bio:</h2>
+{% if  company.bio %}
+<p>{{ company.bio }}</p>
+{% else %}
+no bio
+{% endif %}
+
 {% endblock %}
