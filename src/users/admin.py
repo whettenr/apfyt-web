@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import CompanyApfytManager, Customer
+from .models import CompanyApfytManager, ApfytUser
 
 admin.site.register(CompanyApfytManager)
-admin.site.register(Customer)
+admin.site.register(ApfytUser)
 

@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
-from users.models import Customer, Company 
+from users.models import ApfytUser, Company 
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Survey(models.Model):
@@ -21,6 +21,10 @@ STYLE_CHOICES = (
 
 class MultipleChoiceOption(models.Model):
 	text = models.CharField(max_length=140)
+
+	def __unicode__(self): #def __str__(self):
+		return str(self.text)
+
 
 class Question(models.Model):
 	survey	 = models.ForeignKey(Survey, related_name="questions")
@@ -53,7 +57,7 @@ RATE_CHOICES = (
 
 
 class SurveyResponse(models.Model):
-	customer = models.ForeignKey(Customer)
+	apfyt_user = models.ForeignKey(ApfytUser)
 	survey = models.ForeignKey(Survey)
 	completed = models.BooleanField(default=False)
 	

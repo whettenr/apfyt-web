@@ -10,7 +10,7 @@ class CompanyApfytManager(models.Model):
 	company = models.ForeignKey(Company)
 	user = models.OneToOneField(settings.AUTH_USER_MODEL)
 	
-class Customer(models.Model):
+class ApfytUser(models.Model):
 	user = models.OneToOneField(settings.AUTH_USER_MODEL)
 	birth_year = models.DateField()
 
