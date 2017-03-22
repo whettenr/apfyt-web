@@ -9,6 +9,7 @@ from companies.models import Company
 class CompanyApfytManager(models.Model):
 	company = models.ForeignKey(Company)
 	user = models.OneToOneField(settings.AUTH_USER_MODEL)
+	edit_permission = models.BooleanField(default=False)
 
 	def __unicode__(self): #def __str__(self):
 		return str(self.company) + " " + str(self.user)

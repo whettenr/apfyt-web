@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 
-{% block content%}
+{% block content %}
+
+<h1>list of your deals of the day</h1>
 {% for deal in object_list %}
 	{{ deal }}
-	<img src="{{ deal.image.url }}">
+	<img class="img-responsive" src="{{ deal.image.url }}">
 
 	Example usage:
 
 {% load cropping %}
-<img src="{% cropped_thumbnail deal 'cropping' scale=0.5 %}">
+<img src="{% cropped_thumbnail deal 'cropping' scale=0.3 %}">
 {% empty %}
 	no deals yet
 {% endfor %}

@@ -19,7 +19,7 @@ def contact(request):
 			contact_name = request.POST.get('contact_name', '')
 			contact_email = request.POST.get('contact_email', '')
 			contact_company = request.POST.get('contact_company', '')
-			contact_subject = request.POST.get('contact_subject', '')
+			contact_subject = request.POST.get('contact_subject', '') 
 			form_content = request.POST.get('content', '')
 
 			# Email the profile with the 

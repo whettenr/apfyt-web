@@ -1,20 +1,15 @@
 {% extends "base.html" %}
 
-{% block head %}
-    {{ form.media }}
-{% endblock %}
 
 {% block content%}
-
-hi edit company info here
-<br><hr>{{ form.media}}<hr>
-{% if form.media %}
-no media
-
-{%endif%}
-<form action="" method="post" enctype='multipart/form-data'>{% csrf_token %}
+<h1>Edit {{ company }}'s profile</h1>
+<a href="{% url 'company_profile' %}">Back to company home page</a>
+{{ form.media }}
+<form action="." method="post" enctype='multipart/form-data'>
+	{% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Update" />
 </form>
+
 
 {% endblock %}

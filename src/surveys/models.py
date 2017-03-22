@@ -80,9 +80,9 @@ class SurveyResponse(models.Model):
 	# 50 = half of questions answered
 	def get_completion_status(self): 
 		number_of_questions = self.survey.question_set.count()
-		print number_of_questions
+		# print number_of_questions
 		number_of_answers = self.answer_set.count()
-		print number_of_answers
+		# print number_of_answers
 		return number_of_answers/number_of_questions
 
 

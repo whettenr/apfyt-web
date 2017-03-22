@@ -23,12 +23,3 @@ urlpatterns = [
 	# url(r'^all/$', SurveyList.as_view(), name='set_survey')
 ]
 
-
-router = DefaultRouter()
-
-router.register(r'answers_api', AnswerViewSet)
-router.register(r'questions_api', QuestionViewSet)
-router.register(r'surveys_api', SurveyViewSet)
-router.register(r'survey_responses_api', SurveyResponseViewSet)
-
-urlpatterns += router.urls

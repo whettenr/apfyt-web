@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>detail view of deal of the day</h1>
+{{ object }}
+
+<p>Name: {{ object.name }}</p>
+<p>Company: {{ object.company }}</p>
+<p>Is Active: {{ object.active }}</p>
+<p>Start-Date: {{ object.start_date }}</p>
+<p>End-Date: {{ object.expiration_date }}</p>
+
+
+{% load cropping %}
+<img src="{% cropped_thumbnail object 'cropping' scale=0.5 %}">
+
+{% endblock %}
